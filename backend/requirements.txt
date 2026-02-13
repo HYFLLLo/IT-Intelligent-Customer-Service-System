@@ -1,0 +1,15 @@
+fastapi
+sqlalchemy
+mysql-connector-python
+uvicorn
+pydantic-settings
+python-dotenv
+bcrypt
+pyjwt
+passlib
+python-multipart
+langchain
+langchain-core
+langchain-text-splitters
+chromadb
+requests

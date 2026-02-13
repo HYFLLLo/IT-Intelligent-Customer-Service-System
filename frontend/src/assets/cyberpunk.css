@@ -1,0 +1,928 @@
+/* ============================================
+   赛博朋克设计系统 - Cyberpunk Design System
+   ============================================ */
+
+:root {
+  /* ==========================================
+     霓虹色系 - Neon Colors
+     ========================================== */
+  --cyber-neon-purple: #a855f7;
+  --cyber-neon-pink: #ec4899;
+  --cyber-neon-blue: #3b82f6;
+  --cyber-neon-cyan: #06b6d4;
+  --cyber-neon-green: #10b981;
+  --cyber-neon-yellow: #f59e0b;
+  --cyber-neon-red: #ef4444;
+  --cyber-neon-orange: #f97316;
+
+  /* 霓虹渐变 */
+  --cyber-gradient-purple-pink: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  --cyber-gradient-blue-cyan: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --cyber-gradient-cyan-green: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+  --cyber-gradient-pink-orange: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  --cyber-gradient-rainbow: linear-gradient(90deg, #a855f7, #ec4899, #f97316, #f59e0b, #10b981, #06b6d4, #3b82f6, #a855f7);
+
+  /* 霓虹发光 */
+  --cyber-glow-purple: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(168, 85, 247, 0.3), 0 0 30px rgba(168, 85, 247, 0.2);
+  --cyber-glow-pink: 0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.2);
+  --cyber-glow-blue: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+  --cyber-glow-cyan: 0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3), 0 0 30px rgba(6, 182, 212, 0.2);
+  --cyber-glow-green: 0 0 10px rgba(16, 185, 129, 0.5), 0 0 20px rgba(16, 185, 129, 0.3), 0 0 30px rgba(16, 185, 129, 0.2);
+
+  /* ==========================================
+     深色主题背景 - Dark Theme Backgrounds
+     ========================================== */
+  --cyber-bg-deepest: #030712;
+  --cyber-bg-darker: #0a0f1a;
+  --cyber-bg-dark: #111827;
+  --cyber-bg-card: #1f2937;
+  --cyber-bg-surface: #374151;
+  --cyber-bg-elevated: #4b5563;
+
+  /* 全息效果背景 */
+  --cyber-hologram-bg: linear-gradient(135deg, rgba(10, 15, 26, 0.95) 0%, rgba(17, 24, 39, 0.9) 50%, rgba(31, 41, 55, 0.85) 100%);
+  --cyber-grid-overlay: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 40px,
+    rgba(6, 182, 212, 0.03) 40px,
+    rgba(6, 182, 212, 0.03) 41px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 40px,
+    rgba(6, 182, 212, 0.03) 40px,
+    rgba(6, 182, 212, 0.03) 41px
+  );
+
+  /* ==========================================
+     文字颜色 - Text Colors
+     ========================================== */
+  --cyber-text-primary: #f9fafb;
+  --cyber-text-secondary: #e5e7eb;
+  --cyber-text-tertiary: #d1d5db;
+  --cyber-text-muted: #9ca3af;
+  --cyber-text-disabled: #6b7280;
+
+  /* ==========================================
+     边框和分隔线 - Borders & Dividers
+     ========================================== */
+  --cyber-border: rgba(6, 182, 212, 0.3);
+  --cyber-border-purple: rgba(168, 85, 247, 0.3);
+  --cyber-border-pink: rgba(236, 72, 153, 0.3);
+  --cyber-border-blue: rgba(59, 130, 246, 0.3);
+
+  /* 霓虹边框 */
+  --cyber-neon-border-purple: 2px solid var(--cyber-neon-purple);
+  --cyber-neon-border-pink: 2px solid var(--cyber-neon-pink);
+  --cyber-neon-border-cyan: 2px solid var(--cyber-neon-cyan);
+
+  /* ==========================================
+     阴影系统 - Shadow System
+     ========================================== */
+  --cyber-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --cyber-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.1);
+  --cyber-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.15);
+  --cyber-shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.5), 0 0 40px rgba(6, 182, 212, 0.2);
+
+  /* 霓虹阴影 */
+  --cyber-neon-shadow-purple: 0 0 10px rgba(168, 85, 247, 0.4), 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(168, 85, 247, 0.05);
+  --cyber-neon-shadow-pink: 0 0 10px rgba(236, 72, 153, 0.4), 0 0 30px rgba(236, 72, 153, 0.2), inset 0 0 20px rgba(236, 72, 153, 0.05);
+  --cyber-neon-shadow-cyan: 0 0 10px rgba(6, 182, 212, 0.4), 0 0 30px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(6, 182, 212, 0.05);
+
+  /* ==========================================
+     间距系统 - Spacing System
+     ========================================== */
+  --cyber-space-1: 0.25rem;
+  --cyber-space-2: 0.5rem;
+  --cyber-space-3: 0.75rem;
+  --cyber-space-4: 1rem;
+  --cyber-space-5: 1.25rem;
+  --cyber-space-6: 1.5rem;
+  --cyber-space-8: 2rem;
+  --cyber-space-10: 2.5rem;
+  --cyber-space-12: 3rem;
+
+  /* ==========================================
+     圆角系统 - Border Radius
+     ========================================== */
+  --cyber-radius-sm: 0.25rem;
+  --cyber-radius-md: 0.375rem;
+  --cyber-radius-lg: 0.5rem;
+  --cyber-radius-xl: 0.75rem;
+  --cyber-radius-2xl: 1rem;
+  --cyber-radius-full: 9999px;
+
+  /* ==========================================
+     过渡动画 - Transitions
+     ========================================== */
+  --cyber-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cyber-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cyber-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cyber-transition-cyber: 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ==========================================
+     字体 - Typography
+     ========================================== */
+  --cyber-font-sans: 'Orbitron', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cyber-font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ==========================================
+   全局样式 - Global Styles
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--cyber-font-sans);
+  color: var(--cyber-text-primary);
+  background: var(--cyber-bg-deepest);
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   背景动画效果 - Background Animations
+   ========================================== */
+.cyber-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--cyber-hologram-bg);
+  z-index: -1;
+}
+
+.cyber-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--cyber-grid-overlay);
+  animation: gridMove 20s linear infinite;
+}
+
+.cyber-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* ==========================================
+   全息效果 - Holographic Effects
+   ========================================== */
+.cyber-hologram {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.1) 0%,
+    rgba(168, 85, 247, 0.1) 50%,
+    rgba(236, 72, 153, 0.1) 100%
+  );
+  border: 1px solid var(--cyber-border);
+  box-shadow: var(--cyber-neon-shadow-cyan);
+  backdrop-filter: blur(10px);
+}
+
+.cyber-hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(6, 182, 212, 0.2),
+    transparent
+  );
+  animation: hologramScan 3s ease-in-out infinite;
+}
+
+@keyframes hologramScan {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+/* ==========================================
+   霓虹边框 - Neon Borders
+   ========================================== */
+.cyber-border-neon {
+  position: relative;
+  border: 1px solid transparent;
+  background: var(--cyber-bg-card);
+  overflow: hidden;
+}
+
+.cyber-border-neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--cyber-neon-cyan);
+  border-radius: inherit;
+  box-shadow: var(--cyber-glow-cyan);
+  pointer-events: none;
+}
+
+.cyber-border-neon-purple::before {
+  border-color: var(--cyber-neon-purple);
+  box-shadow: var(--cyber-glow-purple);
+}
+
+.cyber-border-neon-pink::before {
+  border-color: var(--cyber-neon-pink);
+  box-shadow: var(--cyber-glow-pink);
+}
+
+/* ==========================================
+   故障艺术效果 - Glitch Effects
+   ========================================== */
+.cyber-glitch {
+  position: relative;
+  animation: glitchBase 3s infinite;
+}
+
+.cyber-glitch::before,
+.cyber-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.cyber-glitch::before {
+  color: var(--cyber-neon-pink);
+  animation: glitchBefore 2s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.cyber-glitch::after {
+  color: var(--cyber-neon-cyan);
+  animation: glitchAfter 2s infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBase {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  91% {
+    transform: translate(-2px, 1px);
+  }
+  92% {
+    transform: translate(2px, -1px);
+  }
+  93% {
+    transform: translate(-1px, 2px);
+  }
+  94% {
+    transform: translate(1px, -2px);
+  }
+}
+
+@keyframes glitchBefore {
+  0%, 90%, 100% {
+    transform: translate(0);
+    opacity: 0.8;
+  }
+  91% {
+    transform: translate(-3px, 0);
+    opacity: 1;
+  }
+  92% {
+    transform: translate(3px, 0);
+    opacity: 0.5;
+  }
+  93% {
+    transform: translate(-1px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes glitchAfter {
+  0%, 90%, 100% {
+    transform: translate(0);
+    opacity: 0.8;
+  }
+  91% {
+    transform: translate(3px, 0);
+    opacity: 0.5;
+  }
+  92% {
+    transform: translate(-3px, 0);
+    opacity: 1;
+  }
+  93% {
+    transform: translate(1px, 0);
+    opacity: 0.7;
+  }
+}
+
+/* ==========================================
+   电子脉冲效果 - Pulse Effects
+   ========================================== */
+.cyber-pulse {
+  position: relative;
+  animation: cyberPulse 2s ease-in-out infinite;
+}
+
+.cyber-pulse::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 2px solid var(--cyber-neon-cyan);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes cyberPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 0 rgba(6, 182, 212, 0.6);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   数据流动画 - Data Flow Animation
+   ========================================== */
+.cyber-data-flow {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-data-flow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(6, 182, 212, 0.03) 2px,
+    rgba(6, 182, 212, 0.03) 4px
+  );
+  animation: dataFlow 4s linear infinite;
+}
+
+@keyframes dataFlow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(40px);
+  }
+}
+
+/* ==========================================
+   霓虹按钮 - Neon Buttons
+   ========================================== */
+.cyber-button {
+  position: relative;
+  padding: 12px 24px;
+  font-family: var(--cyber-font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cyber-text-primary);
+  background: transparent;
+  border: 2px solid var(--cyber-neon-cyan);
+  border-radius: var(--cyber-radius-md);
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--cyber-transition-cyber);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--cyber-gradient-blue-cyan);
+  transition: var(--cyber-transition-cyber);
+  z-index: -1;
+}
+
+.cyber-button:hover {
+  color: var(--cyber-text-primary);
+  box-shadow: var(--cyber-neon-shadow-cyan);
+}
+
+.cyber-button:hover::before {
+  left: 0;
+}
+
+.cyber-button-purple {
+  border-color: var(--cyber-neon-purple);
+}
+
+.cyber-button-purple::before {
+  background: var(--cyber-gradient-purple-pink);
+}
+
+.cyber-button-purple:hover {
+  box-shadow: var(--cyber-neon-shadow-purple);
+}
+
+.cyber-button-pink {
+  border-color: var(--cyber-neon-pink);
+}
+
+.cyber-button-pink::before {
+  background: var(--cyber-gradient-pink-orange);
+}
+
+.cyber-button-pink:hover {
+  box-shadow: var(--cyber-neon-shadow-pink);
+}
+
+/* ==========================================
+   赛博卡片 - Cyber Cards
+   ========================================== */
+.cyber-card {
+  position: relative;
+  background: var(--cyber-bg-card);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-radius-lg);
+  padding: var(--cyber-space-6);
+  overflow: hidden;
+  transition: var(--cyber-transition-base);
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--cyber-gradient-rainbow);
+  background-size: 200% 100%;
+  animation: rainbowBorder 3s linear infinite;
+}
+
+.cyber-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cyber-neon-shadow-cyan);
+}
+
+@keyframes rainbowBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ==========================================
+   悬浮效果 - Hover Effects
+   ========================================== */
+.cyber-hover {
+  transition: var(--cyber-transition-cyber);
+  cursor: pointer;
+}
+
+.cyber-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--cyber-neon-shadow-cyan);
+}
+
+.cyber-hover:active {
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   扫描线效果 - Scanline Effect
+   ========================================== */
+.cyber-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-scanline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(6, 182, 212, 0.5),
+    transparent
+  );
+  animation: scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: calc(100% - 4px);
+  }
+}
+
+/* ==========================================
+   加载动画 - Loading Animation
+   ========================================== */
+.cyber-loader {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-top-color: var(--cyber-neon-cyan);
+  border-radius: 50%;
+  animation: cyberSpin 1s linear infinite;
+}
+
+.cyber-loader::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 3px solid transparent;
+  border-top-color: var(--cyber-neon-purple);
+  border-radius: 50%;
+  animation: cyberSpin 0.8s linear infinite reverse;
+}
+
+.cyber-loader::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 3px solid transparent;
+  border-top-color: var(--cyber-neon-pink);
+  border-radius: 50%;
+  animation: cyberSpin 1.2s linear infinite;
+}
+
+@keyframes cyberSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   打字机效果 - Typewriter Effect
+   ========================================== */
+.cyber-typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--cyber-neon-cyan);
+  white-space: nowrap;
+  animation: typing 3s steps(40) infinite, blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+  0%, 100% {
+    width: 0;
+  }
+  50%, 90% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ==========================================
+   输入框样式 - Input Styles
+   ========================================== */
+.cyber-input {
+  position: relative;
+  padding: 12px 16px;
+  font-family: var(--cyber-font-sans);
+  font-size: 14px;
+  color: var(--cyber-text-primary);
+  background: var(--cyber-bg-dark);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-radius-md);
+  outline: none;
+  transition: var(--cyber-transition-base);
+}
+
+.cyber-input::placeholder {
+  color: var(--cyber-text-muted);
+}
+
+.cyber-input:focus {
+  border-color: var(--cyber-neon-cyan);
+  box-shadow: var(--cyber-neon-shadow-cyan);
+}
+
+/* ==========================================
+   状态指示器 - Status Indicators
+   ========================================== */
+.cyber-status {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--cyber-bg-dark);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-radius-full);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.cyber-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyber-neon-cyan);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.cyber-status.online::before {
+  background: var(--cyber-neon-green);
+}
+
+.cyber-status.offline::before {
+  background: var(--cyber-text-disabled);
+  animation: none;
+}
+
+.cyber-status.busy::before {
+  background: var(--cyber-neon-orange);
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+  }
+}
+
+/* ==========================================
+   通知徽章 - Notification Badge
+   ========================================== */
+.cyber-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--cyber-neon-pink);
+  color: var(--cyber-text-primary);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  border-radius: var(--cyber-radius-full);
+  box-shadow: var(--cyber-glow-pink);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ==========================================
+   进度条 - Progress Bar
+   ========================================== */
+.cyber-progress {
+  width: 100%;
+  height: 8px;
+  background: var(--cyber-bg-dark);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-radius-full);
+  overflow: hidden;
+}
+
+.cyber-progress-bar {
+  height: 100%;
+  background: var(--cyber-gradient-blue-cyan);
+  border-radius: var(--cyber-radius-full);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.cyber-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: progressShine 1.5s linear infinite;
+}
+
+@keyframes progressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ==========================================
+   标签 - Tags
+   ========================================== */
+.cyber-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: var(--cyber-bg-dark);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-radius-full);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cyber-neon-cyan);
+  transition: var(--cyber-transition-base);
+  cursor: pointer;
+}
+
+.cyber-tag:hover {
+  border-color: var(--cyber-neon-cyan);
+  box-shadow: var(--cyber-glow-cyan);
+  transform: translateY(-1px);
+}
+
+.cyber-tag-purple {
+  color: var(--cyber-neon-purple);
+}
+
+.cyber-tag-purple:hover {
+  border-color: var(--cyber-neon-purple);
+  box-shadow: var(--cyber-glow-purple);
+}
+
+.cyber-tag-pink {
+  color: var(--cyber-neon-pink);
+}
+
+.cyber-tag-pink:hover {
+  border-color: var(--cyber-neon-pink);
+  box-shadow: var(--cyber-glow-pink);
+}
+
+/* ==========================================
+   工具提示 - Tooltip
+   ========================================== */
+.cyber-tooltip {
+  position: relative;
+}
+
+.cyber-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 8px 12px;
+  background: var(--cyber-bg-card);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-radius-md);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--cyber-transition-base);
+  z-index: 1000;
+}
+
+.cyber-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================
+   滚动条 - Scrollbar
+   ========================================== */
+.cyber-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-track {
+  background: var(--cyber-bg-dark);
+  border: 1px solid var(--cyber-border);
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--cyber-gradient-blue-cyan);
+  border-radius: var(--cyber-radius-full);
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-neon-cyan);
+  box-shadow: var(--cyber-glow-cyan);
+}
+
+/* ==========================================
+   响应式调整 - Responsive
+   ========================================== */
+@media (max-width: 768px) {
+  :root {
+    --cyber-space-6: 1.25rem;
+    --cyber-space-8: 1.5rem;
+    --cyber-space-10: 2rem;
+  }
+
+  .cyber-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .cyber-card {
+    padding: var(--cyber-space-4);
+  }
+}
