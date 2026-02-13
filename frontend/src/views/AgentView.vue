@@ -1523,11 +1523,16 @@ onMounted(() => {
           <div v-if="showNotifications" class="notification-dropdown-cyber">
             <div class="notification-header-cyber">
               <h4>系统通知</h4>
-              <button v-if="unreadNotificationsCount() > 0" @click="markAllNotificationsAsRead" class="cyber-btn-card action-btn-card cyan" style="padding: 0.5rem 0.875rem;">
-                <span class="glitch-layer"></span>
-                <span class="grid-lines"></span>
-                <span class="btn-text" style="font-size: 0.75rem;">全部已读</span>
-              </button>
+              <div class="header-actions">
+                <button v-if="unreadNotificationsCount() > 0" @click="markAllNotificationsAsRead" class="cyber-btn-card action-btn-card cyan" style="padding: 0.5rem 0.875rem;">
+                  <span class="glitch-layer"></span>
+                  <span class="grid-lines"></span>
+                  <span class="btn-text" style="font-size: 0.75rem;">全部已读</span>
+                </button>
+                <button @click="toggleNotifications" class="cyber-close-btn">
+                  <span class="close-icon">×</span>
+                </button>
+              </div>
             </div>
             <div class="notification-list-cyber">
               <!-- 空状态 -->
@@ -2945,6 +2950,217 @@ onMounted(() => {
 .notification-time {
   font-size: 0.75rem;
   color: var(--agent-text-secondary);
+}
+
+/* 通知弹窗样式 */
+.notification-dropdown-cyber {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--space-3);
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 350px;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.notification-dropdown-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-blue-cyan);
+  background-size: 200% 100%;
+  animation: rainbowBorder 3s linear infinite;
+}
+
+.notification-header-cyber {
+  padding: var(--space-4);
+  margin: 0;
+  border-bottom: 1px solid var(--border-cyan);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cyber-close-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid var(--border-pink);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1001;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.close-icon {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  transition: var(--transition-base);
+}
+
+.cyber-close-btn:hover {
+  background: rgba(239, 68, 68, 0.4);
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+  transform: scale(1.1);
+}
+
+.cyber-close-btn:hover .close-icon {
+  transform: rotate(90deg) scale(1.1);
+  color: var(--neon-red);
+}
+
+.cyber-close-btn:active {
+  transform: scale(0.95);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  position: relative;
+  z-index: 1001;
+}
+
+.notification-header-cyber {
+  padding: var(--space-4);
+  margin: 0;
+  border-bottom: 1px solid var(--border-cyan);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1001;
+}
+
+.cyber-close-btn:hover {
+  background: rgba(239, 68, 68, 0.4);
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+  transform: scale(1.1);
+}
+
+.cyber-close-btn svg {
+  transition: var(--transition-base);
+}
+
+.cyber-close-btn:hover svg {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.cyber-close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.3), transparent);
+  transition: var(--transition-base);
+}
+
+.cyber-close-btn:hover::before {
+  left: 100%;
+}
+
+.notification-list-cyber {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-item-cyber {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-cyan);
+  transition: var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.notification-item-cyber:hover {
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.notification-item-cyber.unread {
+  background: rgba(6, 182, 212, 0.15);
+  border-left: 3px solid var(--neon-cyan);
+}
+
+.notification-icon {
+  font-size: 1rem;
+  margin-right: var(--space-3);
+  color: var(--text-secondary);
+}
+
+.notification-content {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.4;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.notification-empty-cyber {
+  padding: var(--space-8);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+}
+
+.empty-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: var(--space-1);
+  color: var(--text-secondary);
+}
+
+.empty-subtext {
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
 .user-avatar {

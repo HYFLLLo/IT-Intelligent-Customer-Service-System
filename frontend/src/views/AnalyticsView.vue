@@ -636,26 +636,6 @@ onMounted(() => {
               <label>触发时间</label>
               <value>{{ formatTime(selectedEvent.timestamp) }}</value>
             </div>
-            <div class="detail-item">
-              <label>会话ID</label>
-              <value class="mono-font">{{ selectedEvent.sessionId }}</value>
-            </div>
-            <div class="detail-item">
-              <label>用户ID</label>
-              <value>{{ selectedEvent.userId || '-' }}</value>
-            </div>
-            <div class="detail-item">
-              <label>用户角色</label>
-              <value>
-                <span class="role-badge" :class="selectedEvent.userRole">
-                  {{ selectedEvent.userRole || '-' }}
-                </span>
-              </value>
-            </div>
-            <div class="detail-item">
-              <label>部门</label>
-              <value>{{ selectedEvent.userDepartment || '-' }}</value>
-            </div>
             <div class="detail-item full-width">
               <label>页面URL</label>
               <value class="url-value">{{ selectedEvent.pageUrl }}</value>
