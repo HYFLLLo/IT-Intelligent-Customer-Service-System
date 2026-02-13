@@ -1465,8 +1465,11 @@ onMounted(() => {
       <div class="header-left">
         <div class="logo">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="2" y="6" width="28" height="20" rx="4" fill="#43B7C2" opacity="0.1"/>
-            <path d="M8 12L16 20L24 12" stroke="#43B7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 4L28 10V22L16 28L4 22V10L16 4Z" fill="#43B7C2" opacity="0.1"/>
+            <path d="M16 4L28 10V22L16 28L4 22V10L16 4Z" stroke="#43B7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="10" y="12" width="12" height="3" rx="1" fill="#43B7C2"/>
+            <rect x="10" y="17" width="12" height="3" rx="1" fill="#43B7C2"/>
+            <rect x="10" y="22" width="12" height="3" rx="1" fill="#43B7C2"/>
           </svg>
         </div>
         <h1 class="app-title">坐席端控制平台</h1>
@@ -1506,11 +1509,16 @@ onMounted(() => {
           <span class="count-text">待处理</span>
         </div>
         <div class="notification-bell">
-          <button @click="toggleNotifications" class="cyber-btn-card bell-btn-card">
+          <button @click="toggleNotifications" class="cyber-btn-card bell-btn-card" :class="{ 'has-notifications': unreadNotificationsCount() > 0 }">
             <span class="glitch-layer"></span>
             <span class="grid-lines"></span>
-            <span class="btn-icon">🔔</span>
-            <span v-if="unreadNotificationsCount() > 0" class="notification-badge">{{ unreadNotificationsCount() }}</span>
+            <div class="bell-icon-container">
+              <svg class="bell-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span v-if="unreadNotificationsCount() > 0" class="notification-badge">{{ unreadNotificationsCount() }}</span>
+            </div>
           </button>
           <div v-if="showNotifications" class="notification-dropdown-cyber">
             <div class="notification-header-cyber">
@@ -1543,12 +1551,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class="user-avatar">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="10" r="5" fill="#43B7C2"/>
-            <rect x="11" y="15" width="10" height="12" rx="5" fill="#43B7C2"/>
-          </svg>
-        </div>
+
       </div>
     </header>
 
@@ -2781,39 +2784,100 @@ onMounted(() => {
   position: relative;
 }
 
-.bell-btn {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--tech-border);
-  font-size: 1.25rem;
+.bell-btn-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-cyan);
   cursor: pointer;
   position: relative;
-  padding: var(--tech-space-2);
-  border-radius: var(--tech-radius-lg);
-  transition: var(--tech-transition-base);
-  color: var(--tech-text-secondary);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-base);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.bell-btn:hover {
-  background: rgba(59, 130, 246, 0.2);
-  border-color: var(--tech-primary-500);
-  color: var(--tech-primary-400);
+.bell-btn-card:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--neon-cyan);
   transform: scale(1.05);
+  box-shadow: var(--glow-cyan);
+}
+
+.bell-btn-card.has-notifications {
+  animation: bellPulse 2s ease-in-out infinite;
+}
+
+@keyframes bellPulse {
+  0%, 100% {
+    box-shadow: var(--glow-cyan);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6), 0 0 40px rgba(6, 182, 212, 0.3);
+  }
+}
+
+.bell-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-svg {
+  color: currentColor;
+  transition: var(--transition-base);
+}
+
+.bell-btn-card:hover .bell-svg {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--neon-cyan);
+}
+
+.bell-btn-card.has-notifications .bell-svg {
+  animation: bellRing 1s ease-in-out infinite;
+}
+
+@keyframes bellRing {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
 }
 
 .notification-badge {
   position: absolute;
-  top: -4px;
-  right: -4px;
-  background: var(--tech-gradient-danger);
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
   color: white;
   font-size: 0.625rem;
-  padding: var(--tech-space-1) var(--tech-space-2);
-  border-radius: var(--tech-radius-full);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
   min-width: 18px;
   text-align: center;
   font-weight: 700;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
-  animation: pulse 2s infinite;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  animation: badgePulse 2s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.8), 0 0 40px rgba(239, 68, 68, 0.4);
+  }
 }
 
 @keyframes pulse {

@@ -1,0 +1,47 @@
+# 依赖目录
+node_modules/
+venv/
+env/
+
+# 编译输出
+dist/
+build/
+
+# 数据库文件
+*.db
+*.sqlite3
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 日志文件
+logs/
+*.log
+
+# 编辑器配置文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 测试覆盖率报告
+coverage/
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+
+# 其他不需要版本控制的文件
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12

@@ -940,8 +940,12 @@ const formatSystemMessage = (content) => {
       <div class="header-left">
         <div class="logo">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="2" y="6" width="28" height="20" rx="4" fill="#43B7C2" opacity="0.1"/>
-            <path d="M8 12L16 20L24 12" stroke="#43B7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="16" r="14" fill="#43B7C2" opacity="0.1"/>
+            <path d="M10 16C10 13.7909 11.7909 12 14 12H18C20.2091 12 22 13.7909 22 16V19C22 21.2091 20.2091 23 18 23H14C11.7909 23 10 21.2091 10 19V16Z" fill="#43B7C2"/>
+            <path d="M16 8V10" stroke="#43B7C2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M8 16H10" stroke="#43B7C2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M22 16H24" stroke="#43B7C2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M16 22V24" stroke="#43B7C2" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </div>
         <h1 class="app-title">IT智能助手</h1>
