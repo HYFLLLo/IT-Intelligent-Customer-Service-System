@@ -86,7 +86,7 @@ IT智能客服系统是基于AI Agent技术的企业级IT支持解决方案，�
 flowchart TD
     subgraph 前端层
         A[员工端界面] --> B[Vue.js应用]
-        C[客服端界面] --> B
+        C[坐席端界面] --> B
         B --> E[WebSocket服务]
         B --> F[HTTP API调用]
     end
@@ -249,7 +249,7 @@ npm run dev
 
 ### 2. 工单管理
 
-1. **访问客服端**：打开浏览器，访问 `http://localhost:5173/agent`
+1. **访问坐席端**：打开浏览器，访问 `http://localhost:5173/agent`
 2. **查看工单**：在工单列表中查看待处理的工单
 3. **处理工单**：点击工单查看详情，参考AI建议编辑回复
 4. **提交回复**：编辑完成后点击发送按钮
